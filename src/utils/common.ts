@@ -209,7 +209,7 @@ export const supportPP = async () => {
             await githubApi.followingUser()
             await githubApi.startProgect('PakePlus')
             await githubApi.startProgect('PakePlus-Android')
-            // await githubApi.startProgect('PakePlus-iOS')
+            await githubApi.startProgect('PakePlus-iOS')
         }
     } catch (error) {
         console.error('supportPP error', error)
@@ -577,30 +577,6 @@ export const getTauriConfFetch = async (params: any) => {
     // windowConfig
     content = content.replaceAll('-1', params.windowConfig)
     return base64Encode(content)
-}
-
-// get init.txt file content
-export const getInitRust = async (params: any) => {
-    // 将visible: true 替换为 visible: false
-    params.config = JSON.parse(params.config)
-    params.config.visible = false
-    params.config = JSON.stringify(params.config)
-    if (isTauri) {
-        const content = await invoke('update_init_rs', params)
-        return content
-    } else {
-        let content = await readStaticFile('init.txt')
-        if (content === 'error') {
-            return 'error'
-        }
-        // 替换WINDOWCONFIG
-        content = content.replaceAll('WINDOWCONFIG', params.config)
-        // 替换STATE
-        if (!params.state) {
-            content = content.replaceAll('if true {', 'if false {')
-        }
-        return base64Encode(content)
-    }
 }
 
 // get init.rs file content

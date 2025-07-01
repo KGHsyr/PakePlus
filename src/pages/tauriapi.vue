@@ -799,7 +799,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.downloadFile"
+                            :code="Codes.downloadFile.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -810,7 +810,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.downProgress"
+                            :code="Codes.downProgress.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -886,7 +886,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.openUrlCurrent"
+                            :code="Codes.openUrlCurrent.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -897,7 +897,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.openUrlNew"
+                            :code="Codes.openUrlNew.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -908,7 +908,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.openUrlBrowser"
+                            :code="Codes.openUrlBrowser.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -937,7 +937,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.runShell"
+                            :code="Codes.runShell.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -987,7 +987,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.removeEle"
+                            :code="Codes.removeEle.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -998,7 +998,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.addEle"
+                            :code="Codes.addEle.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -1009,7 +1009,7 @@
                         </p>
                         <CodeEdit
                             lang="javascript"
-                            :code="Codes.modifyEle"
+                            :code="Codes.modifyEle.trim()"
                             :disabled="true"
                         />
                     </div>
@@ -1030,6 +1030,23 @@
                         <p class="description">
                             {{ t('autoOperationDesc') }}
                         </p>
+                    </div>
+                </div>
+                <!-- api/listenData -->
+                <div v-else-if="menuIndex === '3-3'" class="cardContent">
+                    <h1 class="cardTitle">listenData</h1>
+                    <p>Listen web data</p>
+                    <div class="cardBox">
+                        <el-tooltip content="open debug" placement="bottom">
+                            <el-button @click="debugHandler('open')">
+                                开启调试
+                            </el-button>
+                        </el-tooltip>
+                        <el-tooltip content="close debug" placement="bottom">
+                            <el-button @click="debugHandler('close')">
+                                关闭调试
+                            </el-button>
+                        </el-tooltip>
                     </div>
                 </div>
                 <!-- api/template -->
@@ -1990,6 +2007,16 @@ const downFile = async (selPath: boolean = true) => {
     })
 }
 
+// open vconsole
+let vConsole: any = null
+const debugHandler = (type: string = 'open') => {
+    if (type === 'open') {
+        vConsole = new window.VConsole()
+    } else {
+        vConsole.destroy()
+    }
+}
+
 listen('download_progress', (event: any) => {
     console.log(`downloading fileId--- ${event.payload.fileId}`)
     console.log(`downloading downloaded--- ${event.payload.downloaded}`)
@@ -2009,6 +2036,8 @@ onMounted(() => {
     if (about) {
         defaultMenu.value = '4'
         menuIndex.value = '4'
+    } else {
+        handleMenu(menuIndex.value)
     }
 })
 </script>

@@ -27,9 +27,11 @@ export default defineConfig({
             themeConfig: {
                 // 基础配置
                 logo: {
-                    src: './app.webp',
+                    src: 'https://pakeplus.com/app.webp',
                     alt: 'PakePlus',
                 },
+                aside: true,
+                outlineTitle: '页面导航',
                 // 导航栏
                 nav: [
                     { text: '首页', link: '/' },
@@ -75,32 +77,86 @@ export default defineConfig({
                         {
                             text: '进阶配置',
                             collapsed: false,
-                            items: [{ text: '进阶配置', link: '/guide/tauri' }],
+                            items: [
+                                { text: '桌面端配置', link: '/guide/tauri' },
+                                {
+                                    text: '移动端配置',
+                                    link: '/guide/appconfig',
+                                },
+                            ],
                         },
                         {
                             text: '高级玩法',
                             collapsed: false,
                             items: [
-                                { text: '高级玩法', link: '/guide/superman' },
+                                {
+                                    text: '桌面端API',
+                                    link: '/guide/desktopapi',
+                                },
+                                { text: '移动端API', link: '/guide/phoneapi' },
+                                {
+                                    text: '自定义打包',
+                                    link: '/guide/custompack',
+                                },
                             ],
                         },
                     ],
                     '/question/': [
-                        { text: '常见问题', link: '/question/' },
-                        { text: '使用限制', link: '/question/limit' },
-                        { text: 'Token无效', link: '/question/invalid' },
-                        { text: '项目已存在', link: '/question/exist' },
-                        { text: '编译失败', link: '/question/build' },
-                        { text: '打包html项目', link: '/question/html' },
-                        { text: '打包Vue等项目', link: '/question/vue' },
-                        { text: 'ipa/apk安装', link: '/question/phone' },
-                        { text: '窗口跳转', link: '/question/jump' },
-                        { text: '其他问题', link: '/question/other' },
-                        { text: 'Issue', link: '/question/issue' },
+                        {
+                            text: '汇总问题',
+                            collapsed: false,
+                            items: [
+                                { text: '常见问题', link: '/question/' },
+                                { text: '使用限制', link: '/question/limit' },
+                                {
+                                    text: 'Token无效',
+                                    link: '/question/invalid',
+                                },
+                                { text: '项目已存在', link: '/question/exist' },
+                                { text: '编译失败', link: '/question/build' },
+                                {
+                                    text: '打包html项目',
+                                    link: '/question/html',
+                                },
+                                {
+                                    text: '打包Vue等项目',
+                                    link: '/question/vue',
+                                },
+                                { text: '窗口跳转', link: '/question/jump' },
+                            ],
+                        },
+                        {
+                            text: '桌面端问题',
+                            collapsed: false,
+                            items: [
+                                {
+                                    text: '开启调试',
+                                    link: '/question/debug',
+                                },
+                            ],
+                        },
+                        {
+                            text: '移动端问题',
+                            collapsed: false,
+                            items: [
+                                {
+                                    text: 'ipa/apk安装',
+                                    link: '/question/phone',
+                                },
+                            ],
+                        },
+                        {
+                            text: '其他问题',
+                            collapsed: false,
+                            items: [
+                                { text: '其他问题', link: '/question/other' },
+                                { text: 'Issue', link: '/question/issue' },
+                            ],
+                        },
                     ],
                     '/exchange/': [
                         { text: '加入群聊', link: '/exchange/' },
-                        // { text: '商业支持', link: '/exchange/business' },
+                        { text: '商业支持', link: '/exchange/business' },
                         { text: 'Github讨论', link: '/exchange/github' },
                     ],
                     '/sponsor/': [

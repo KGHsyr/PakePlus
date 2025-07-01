@@ -3,9 +3,9 @@ import { VPTeamMembers } from 'vitepress/theme'
 
 const members = [
   {
-    avatar: 'https://www.github.com/yyx990803.png',
+    avatar: 'https://avatars.githubusercontent.com/u/499550?v=4',
     name: 'Evan You',
-    title: 'Creator',
+    title: 'Author of @vuejs and @vitejs',
     links: [
       { icon: 'github', link: 'https://github.com/yyx990803' },
       { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
@@ -17,7 +17,7 @@ const members = [
     title: '让你上瘾的 英语学习工具',
     links: [
       { icon: 'github', link: 'https://github.com/cuixueshe/earthworm' },
-      { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
+      { icon: 'twitter', link: 'https://x.com/cuixr1314' }
     ]
   }
 ]

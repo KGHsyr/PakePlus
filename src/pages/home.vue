@@ -154,7 +154,7 @@
                         {{ t('updateNow') }}
                     </el-dropdown-item>
                     <el-dropdown-item
-                        v-if="isTauri"
+                        v-else-if="isTauri"
                         @click="sendUpdateEvent('update-check')"
                     >
                         {{ t('checkUpdate') }}
@@ -529,7 +529,7 @@ const testToken = async (tips: boolean = true) => {
                 localStorage.setItem('token', store.token)
                 store.setUser(userInfo.data)
                 try {
-                    if (userInfo.data.login !== 'Sjj1024') {
+                    if (userInfo.data.login !== upstreamUser) {
                         await forkStartShas(tips)
                     } else {
                         await commitShas(tips)
@@ -717,12 +717,6 @@ const getWebSha = async (repo: string = 'PakePlus') => {
     }
 }
 
-// open vconsole
-const openDebug = () => {
-    console.log('openDebug')
-    var _ = new window.VConsole()
-}
-
 // delete project confirm
 const delProject = () => {
     if (
@@ -747,7 +741,7 @@ const creatProject = async () => {
     creatLoading.value = true
     proExist.value = false
     if (branchName.value === 'ppdebug') {
-        openDebug()
+        var _ = new window.VConsole()
         branchName.value = ''
         creatLoading.value = false
         branchDialog.value = false
