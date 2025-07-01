@@ -1,32 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="styles.css" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PakePlus App</title>
-        <script type="module" src="/main.js" defer></script>
-    </head>
-
-    <body>
-        <main class="container">
-            <h1>Welcome to PakePlus</h1>
-            <form class="row" id="greet-form">
-                <input id="inputValue" placeholder="Enter a something..." />
-            </form>
-            <div class="resultBox">
-                <span>result: </span>
-                <span id="result"></span>
-            </div>
-            <div class="invokeBox">
-                <button id="openUrl">open_url_browser</button>
-                <button id="openUrlNew">open_url_new</button>
-                <button id="runCommand">run_command</button>
-                <button id="downloadFile">download_file</button>
-                <button id="getExeDir">get_exe_dir</button>
-                <button id="getEnvVar">get_env_var</button>
-                <button id="findPort">find_port</button>
-            </div>
-        </main>
-    </body>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>隐藏文字【折线版】</title>
+<meta name="description" content='隐藏文字【折线版】：把文字隐藏在折线中，人眼可以识别，但系统很难检测。&lt;br /&gt;另有：&lt;a href=&quot;/zaixian/YinCang&quot;&gt;隐藏文字【直线版】&lt;/a&gt;、&lt;a href=&quot;/zaixian/YinCangDian&quot;&gt;隐藏文字【点阵版】圆点文字&lt;/a&gt;&lt;br /&gt;另外：&lt;a href=&quot;/qiuzhu/?from=yincangwenzi&quot;&gt;也可以学习【在 PS 中制作】隐藏文字&lt;/a&gt;'>
+<!-- <script src="/js/head.js"></script> -->
+<!-- <link rel="stylesheet" href="/css/mengban.css"  type="text/css" /> -->
+<link rel="stylesheet" href="index.css"  type="text/css" />
+<base target="_blank" />
+</head>
+<body>
+<div class="wenzi">隐藏文字</div>
+<div class="zhexian"></div>
+<div class="caozuo">
+    <h3>隐藏文字【折线版】</h3>
+    <p>另有：<a href="../YinCang/"><strong>直线版（横/竖）</strong></a>、<a href="../YinCangDian/"><strong>点阵版（圆点）</strong></a></p>
+    <label>▶ 输入文字：<input type="text" value="隐藏文字" /></label>
+    <ul>
+        <li>
+            文字对齐：<select name="textAlign">
+            <option value="left">左对齐</option>
+            <option value="center">居中</option>
+            <option value="right">右对齐</option>
+            </select>
+        </li>
+        <li>如需换行，加符号：|</li>
+    </ul>
+    <label>▶ 文字大小：<input name="fontSize" type="range" min="50" max="700" step="10" value="240" /></label>
+    <label>▶ 文字粗细：<input name="fontWeight" type="range" min="100" max="900" step="100" value="700" /></label>
+    <label>▶ 文字行距：<input name="lineHeight" type="range" min="1" max="3" step="0.1" value="1" /></label>
+    <label>▶ 文字间距：<input name="letterSpacing" type="range" min="0" max="500" step="10" value="0" /></label>
+    <label>▶ 文字透明：<input name="opacity" type="range" min="0" max="1" step="0.1" value="1" /></label>
+    <section><span>▶</span><label for="ziti" >点此：自定义字体</label><input id="ziti" type="file" /><a href="/xiazai/ziyuan.html?zhifu=ZiTi">（字体下载）</a></section>
+    <h3>折线设置（可控制线条粗细）：</h3>
+    <label>▶ 宽(向右变细)：<input name="kuan" type="range" min="50" max="200" step="2" value="100" /></label>
+    <label>▶ 高(向左变细)：<input name="gao" type="range" min="50" max="300" step="2" value="100" /></label>
+    <h3>截图保存：</h3>
+    <ul>
+        <li>键盘 Print Screen 直接截图</li>
+        <li>浏览器、微信、QQ，都带截图功能</li>
+        <li><a href="/go.html?to=jietu">下载截图软件</a></li>
+    </ul>
+    <h3>相关：</h3>
+    <ul>
+        <li><a href="/qiuzhu/?from=yincangzhe">快速学会【在 PS 中制作】隐藏文字</a></li>
+        <li><a class="fanhui" target="_blank"></a></li>
+    </ul>
+</div>
+<script src="index-simplified.js"></script>
+<!-- <script type="module" src="/js/yingyongMengban.js"></script> -->
+<!-- <script type="module" src="/js/tongji.js"></script> -->
+<!-- <script src="/js/stop.js"></script> -->
+</body>
 </html>
