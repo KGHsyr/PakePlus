@@ -1,0 +1,178 @@
+* {margin:0; padding:0;}
+a {color:#0a6;}
+a:hover {text-decoration: underline;}
+strong {color:#c03;}
+html, body, .zhexian {width:100%; height:100%;}
+html, body {overflow:hidden;}
+.wenzi {display:flex; position:absolute; width:80%; height:100%; justify-content: center; align-items: center; line-height:1; font-size: 300px; font-weight: bold; z-index:-1}
+.zhexian section {display:flex; width:100%; justify-content: center; align-items: center;}
+.zhexian section svg {flex-shrink:0;}
+
+/* 优化后的控制区域样式 */
+.caozuo {
+    position: fixed; 
+    right: 15px; 
+    top: 15px; 
+    padding: 25px; 
+    font-size: 16px; 
+    z-index: 999; 
+    background: rgba(242, 242, 242, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    max-width: 450px;
+    min-width: 350px;
+    max-height: 92vh;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.caozuo h3 {
+    margin: 0 0 18px 0;
+    font-size: 20px;
+    color: #333;
+    border-bottom: 3px solid #0066aa;
+    padding-bottom: 10px;
+}
+
+.caozuo > * {
+    margin-bottom: 15px;
+}
+
+.caozuo label, .caozuo section {
+    display: flex; 
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+}
+
+.caozuo label {
+    font-weight: 500;
+    color: #444;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.caozuo section > * {
+    margin-right: 8px;
+}
+
+.caozuo ol, .caozuo ul {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.caozuo li {
+    cursor: pointer; 
+    margin-bottom: 6px;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+    font-size: 14px;
+}
+
+.caozuo li:hover {
+    color: #0066aa;
+}
+
+/* 输入控件优化 */
+input {
+    flex: 1;
+    min-width: 140px;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+input[type="text"] {
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    min-height: 24px;
+}
+
+input[type="range"] {
+    margin: 0 12px;
+    accent-color: #0066aa;
+    height: 8px;
+}
+
+select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    min-height: 40px;
+}
+
+.baocun {
+    font-size: 16px;
+    background: rgb(0, 181, 181);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    min-height: 42px;
+}
+
+.baocun:hover {
+    background: rgb(0, 160, 160);
+}
+
+select, input[type="text"] {
+    border: 1px solid #ddd;
+    transition: border-color 0.2s ease;
+}
+
+select:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: #0066aa;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .caozuo {
+        right: 10px;
+        top: 10px;
+        padding: 20px;
+        font-size: 15px;
+        max-width: 380px;
+        min-width: 300px;
+    }
+    
+    .caozuo h3 {
+        font-size: 18px;
+    }
+    
+    input[type="text"] {
+        font-size: 15px;
+    }
+    
+    select {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .caozuo {
+        right: 5px;
+        top: 5px;
+        padding: 15px;
+        font-size: 14px;
+        max-width: calc(100vw - 30px);
+        min-width: unset;
+    }
+    
+    .caozuo h3 {
+        font-size: 16px;
+    }
+    
+    input[type="text"] {
+        font-size: 14px;
+    }
+    
+    select {
+        font-size: 14px;
+    }
+}
