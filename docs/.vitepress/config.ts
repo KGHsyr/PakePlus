@@ -27,7 +27,7 @@ export default defineConfig({
             themeConfig: {
                 // 基础配置
                 logo: {
-                    src: 'https://pakeplus.com/app.webp',
+                    src: './app.webp',
                     alt: 'PakePlus',
                 },
                 aside: true,
@@ -70,7 +70,8 @@ export default defineConfig({
                                 { text: '创建项目', link: '/guide/creat' },
                                 { text: '简单配置', link: '/guide/config' },
                                 { text: 'APP配置', link: '/guide/phone' },
-                                { text: '编译发布', link: '/guide/build' },
+                                { text: '本地打包', link: '/guide/easylocal' },
+                                { text: '云端打包', link: '/guide/build' },
                                 { text: '发布成功', link: '/guide/success' },
                             ],
                         },
