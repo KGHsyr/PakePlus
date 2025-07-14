@@ -1,18 +1,25 @@
 export default {
     openUrlBrowser: `
 const { invoke } = window.__TAURI__.core
- 
-if ('__TAURI__' in window) {
-    const hookClick = (e) => {
-        const origin = e.target.closest('a')
-        const isBaseTargetBlank = document.querySelector(
-            'head base[target="_blank"]'
-        )
-        console.log('origin', origin, isBaseTargetBlank)
-        invoke('open_url', { url: origin.href })
-    }
-    document.addEventListener('click', hookClick, { capture: true })
+const hookClick = (e) => {
+const origin = e.target.closest('a')
+const isBaseTargetBlank = document.querySelector(
+    'head base[target="_blank"]'
+)
+if (
+    (origin && origin.href && origin.target === '_blank') ||
+    (origin && origin.href && isBaseTargetBlank)
+) {
+    e.preventDefault()
+    invoke('open_url', { url: origin.href })
 }
+}
+
+window.open = function (url, target, features) {
+invoke('open_url', { url: url })
+}
+
+document.addEventListener('click', hookClick, { capture: true })
     `,
     openUrlCurrent: `
 const hookClick = (e) => {
@@ -101,5 +108,27 @@ document.body.appendChild(modal)
     `,
     modifyEle: `
 document.querySelector("#juejin > div.container.index-container > div > header > div > a > img.logo-img").src = "https://pakeplus.com/app.svg"
+    `,
+    disRightClick: `
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+    `,
+    inputRightClick: `
+document.addEventListener('contextmenu', function(e) {
+  const target = e.target;
+  const isInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA';
+  const isContentEditable = target.isContentEditable;
+  if (!isInput && !isContentEditable) {
+    e.preventDefault();
+  }
+});
+    `,
+    notification: `
+const { invoke } = window.__TAURI__.core
+
+if ('__TAURI__' in window) {
+    invoke('notification', { title: 'test', body: 'notification body' })
+}
     `,
 }
